@@ -1,0 +1,127 @@
+-----------------------------------
+-            minicurl             -
+-----------------------------------
+Welcome to minicurl! minicurl allows you to:
+
+a) Download HTML pages over HTTP and HTTPS connections to file
+b) Output HTML pages to terminal window (stdout)
+
+To install:
+   cd minicurl
+   make
+   sudo make install
+
+-----------------------------------
+-              usage              -
+-----------------------------------
+minicurl <url>
+	 --> Download <url> to ./index.html
+
+minicurl <url> -f <filename>
+	 --> Download <url> to <filename>
+
+minicurl <url> -d 
+	 --> Download <url> to stdout
+
+minicurl <url> -ssl
+	 --> Download <url> to ./index.html
+	 --> Force HTTPS/SSL
+
+
+
+-----------------------------------
+-       known isues v0.1          -
+-----------------------------------
+
+1) Minicurl can only handle html/plantext data. Binary data streams such
+as images (.jpg, .png), and movies have not been implemented.
+
+2) Chunked transfer encoding is not fully supported. However, minicurl will
+try to download something from the website.
+
+-----------------------------------
+-            examples             -
+-----------------------------------
+1) minicurl will automatically try to resolve http vs. https. It will default
+to http if the https is not in the url
+
+--> minicurl https://www.wikipedia.org/
+
+IP addresses for www.wikipedia.org:
+-----------------------------------
+  IPv6: 2620:0:862:ed1a::1
+
+  IPv4: 91.198.174.192
+
+SSL Certificate Data: www.wikipedia.org
+-----------------------------------
+  C=US, ST=California, L=San Francisco, O=Wikimedia Foundation, Inc., CN=*.wikipedia.org
+
+HTTP Request Data:
+-----------------------------------
+GET / HTTP/1.1
+Host: www.wikipedia.org
+
+Content-Length: 86359
+Content-Type: text/html
+-----------------------------------
+Wrote 86359/86359 bytes to ./index.html
+
+
+
+2) Minicurl will atomatically resolve extended domains to properly
+format GET requests. 
+
+--> minicurl https://stackoverflow.com/questions/12996657/send-raw-binary-data-over-c-socket
+
+IP addresses for stackoverflow.com:
+-----------------------------------
+  IPv4: 151.101.1.69
+
+  IPv4: 151.101.65.69
+
+  IPv4: 151.101.193.69
+
+  IPv4: 151.101.129.69
+
+SSL Certificate Data: stackoverflow.com
+-----------------------------------
+  C=US, ST=NY, L=New York, O=Stack Exchange, Inc., CN=*.stackexchange.com
+
+HTTP Request Data:
+-----------------------------------
+GET /questions/12996657/send-raw-binary-data-over-c-socket HTTP/1.1
+Host: stackoverflow.com
+
+Content-Length: 96768
+Content-Type: text/html
+-----------------------------------
+Wrote 96768/96768 bytes to ./index.html
+
+
+
+
+3) Minicurl can be foreced to operate in ssl mode. In this example
+the http/https is not specified, so the -ssl flag allows override. 
+
+-->  minicurl www.kitco.com -ssl
+
+IP addresses for www.kitco.com:
+-----------------------------------
+  IPv4: 38.108.81.33
+
+  IPv4: 72.142.122.33
+
+SSL Certificate Data: www.kitco.com
+-----------------------------------
+  OU=Domain Control Validated, CN=*.kitco.com
+
+HTTP Request Data:
+-----------------------------------
+GET / HTTP/1.1
+Host: www.kitco.com
+
+Content-Length: 234150
+Content-Type: text/html
+-----------------------------------
+Wrote 234150/234150 bytes to ./index.html
