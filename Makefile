@@ -2,7 +2,7 @@ LIB_SOURCE  = ./src/libs/
 MAIN_SOURCE = ./src/main/
 CC = gcc
 
-CFLAGS  = -c -I../inc/ -Iopenssl/openssl-0.9.8k/include
+CFLAGS  = -c -I../inc/
 LDFLAGS = -lssl -lcrypto 
 PROGRAM = minicurl
 
