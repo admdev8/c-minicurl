@@ -34,7 +34,7 @@ minicurl <url> -ssl
 -----------------------------------
 
 1) Minicurl can only handle html/plantext data. Binary data streams such
-as images (.jpg, .png), and movies have not been implemented.
+as images (.jpg, .png) have not been implemented.
 
 2) Chunked transfer encoding is not fully supported. However, minicurl will
 try to download something from the website.
