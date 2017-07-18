@@ -7,7 +7,7 @@ a) Download HTML pages over HTTP and HTTPS connections to file
 b) Output HTML pages to terminal window (stdout)
 
 To install:
-   cd minicurl
+   cd c-minicurl
    make
    sudo make install
 
